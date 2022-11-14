@@ -30,36 +30,36 @@ tcol3.image(Image.open('IISRI_logo.png'),width=150)
 
 col1,col2,col3 = st.columns(3)
 
-def check_password():
-    """Returns `True` if the user had the correct password."""
+# def check_password():
+#     """Returns `True` if the user had the correct password."""
 
-    def password_entered():
-        """Checks whether a password entered by the user is correct."""
-        if st.session_state["password"] == st.secrets["password"]:
-            st.session_state["password_correct"] = True
-            del st.session_state["password"]  # don't store password
-        else:
-            st.session_state["password_correct"] = False
+#     def password_entered():
+#         """Checks whether a password entered by the user is correct."""
+#         if st.session_state["password"] == st.secrets["password"]:
+#             st.session_state["password_correct"] = True
+#             del st.session_state["password"]  # don't store password
+#         else:
+#             st.session_state["password_correct"] = False
 
-    if "password_correct" not in st.session_state:
-        # First run, show input for password.
-        col2.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        return False
-    elif not st.session_state["password_correct"]:
-        # Password not correct, show input + error.
-        col2.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        st.error("😕 Password incorrect")
-        return False
-    else:
-        # Password correct.
-        return True
+#     if "password_correct" not in st.session_state:
+#         # First run, show input for password.
+#         col2.text_input(
+#             "Password", type="password", on_change=password_entered, key="password"
+#         )
+#         return False
+#     elif not st.session_state["password_correct"]:
+#         # Password not correct, show input + error.
+#         col2.text_input(
+#             "Password", type="password", on_change=password_entered, key="password"
+#         )
+#         st.error("😕 Password incorrect")
+#         return False
+#     else:
+#         # Password correct.
+#         return True
 
 
-if check_password():
+if True:#check_password():
 
     # st.button("Click me")     
     tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(['Home', "Individual Analysis", "Comparative Analysis", "Objective Analysis", "Machine Learning", "Progress through Sessions"])
