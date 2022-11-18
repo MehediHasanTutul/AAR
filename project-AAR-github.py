@@ -69,7 +69,7 @@ col1,col2,col3 = st.columns(3)
 if True:#check_password():
 
     # st.button("Click me")     
-    tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(['Home', "Individual Analysis", "Comparative Analysis", "Objective Analysis", "Machine Learning", "Progress through Sessions"])
+    tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(['Home', "Individual Analysis", "Comparative Analysis", "Objective Analysis", "AI/ML Analytics", "Progress through Sessions"])
 
     with tab0:
         
