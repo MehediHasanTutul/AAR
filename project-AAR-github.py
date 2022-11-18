@@ -6,7 +6,14 @@ import plotly.graph_objects as go
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 st.set_page_config(layout="wide")
-
+st.markdown(
+     """
+     <style>
+     #MainMenu {visibility: hidden;}
+     footer {visibility: hidden;}
+        </style>
+        """,
+        unsafe_allow_html=True)
 
 def layout_for_firefighter_icon(source, length, loop_j, x_val, y_val, sizexy=0.2, xanchor="center", xyref="paper"):
     return dict(
@@ -25,7 +32,7 @@ def layout_for_firefighter_icon(source, length, loop_j, x_val, y_val, sizexy=0.2
 
 tcol1, tcol2, tcol3 = st.columns([1, 8, 1])
 tcol1.image(Image.open('fire_icon.png'),width=70)
-tcol2.markdown("<h2 style='text-align: center; color: white;'>AAR Webapp</h2>", unsafe_allow_html=True)
+tcol2.markdown("<h2 style='text-align: center; color: black;'>AAR Webapp</h2>", unsafe_allow_html=True)
 tcol3.image(Image.open('IISRI_logo.png'),width=150)
 
 col1,col2,col3 = st.columns(3)
@@ -142,13 +149,13 @@ if True:#check_password():
             annotations=\
             [
             {"xref": "paper", "yref": "paper","xanchor": "center","x":-0.14, "y":0, 
-             "text": f"<b>Max. {max(df1[y_val[i]]):.2f}</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+             "text": f"<b>Max. {max(df1[y_val[i]]):.2f}</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
             {"xref": "paper", "yref": "paper","xanchor": "center","x":-0.14, "y":0.2, 
-             "text": f"<b>Avg. {(df1[y_val[i]]).mean():.2f}</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+             "text": f"<b>Avg. {(df1[y_val[i]]).mean():.2f}</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
             {"xref": "paper", "yref": "paper","xanchor": "center","x":-0.14, "y":0.4, 
-             "text": f"<b>Min. {min(df1[y_val[i]]):.2f}</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+             "text": f"<b>Min. {min(df1[y_val[i]]):.2f}</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
             {"xref": "paper", "yref": "paper", "xanchor": "center","x":-0.14, "y":1, 
-             "text": f"<b>{text_val[i]}</b>", 'font': {'size': 16, 'color': 'white'}, "showarrow":False}  ## 
+             "text": f"<b>{text_val[i]}</b>", 'font': {'size': 16, 'color': 'black'}, "showarrow":False}  ## 
             ],
             margin={"l":150, "r": 10},
             )
@@ -170,7 +177,7 @@ if True:#check_password():
             gauge = {
                 'axis': {'range': [None, 500], 'tickwidth': 1, 'tickcolor': "darkblue"},
                 'bar': {'color': "darkblue"},
-                'bgcolor': "white",
+                'bgcolor': "black",
                 'borderwidth': 2,
                 'bordercolor': "gray",
                 'steps': [
@@ -207,7 +214,7 @@ if True:#check_password():
         # annotations=\
         # [
         # {"xref": "paper", "yref": "paper","xanchor": "center","x":-0.14, "y":0, 
-        #  "text": f"<b>Max. {max(df1[y_values]):.2f}</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+        #  "text": f"<b>Max. {max(df1[y_values]):.2f}</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
         
         # ],
         margin={"l":1, "r": 1},
@@ -258,38 +265,38 @@ if True:#check_password():
             annotations=\
             [
             {"xref": "paper", "yref": "paper","xanchor": "center","x":-0., "y":1.35, 
-             "text": "<b>Max. Intensity</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  #{mx[0]:.2f}
+             "text": "<b>Max. Intensity</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  #{mx[0]:.2f}
             {"xref": "paper", "yref": "paper","xanchor": "center","x":-0., "y":1.20, 
-             "text": "<b>Avg. Intensity</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  # {avg[0]:.2f}
+             "text": "<b>Avg. Intensity</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  # {avg[0]:.2f}
                 
             {"xref": "paper", "yref": "paper","xanchor": "center","x":0.2, "y":1.35, 
-             "text": f"<b>{mx[0]:.2f} %</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  #
+             "text": f"<b>{mx[0]:.2f} %</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  #
             {"xref": "paper", "yref": "paper","xanchor": "center","x":0.2, "y":1.20, 
-             "text": f"<b>{avg[0]:.2f} %</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  # 
+             "text": f"<b>{avg[0]:.2f} %</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  # 
                 
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":0.4, "y":1.35, 
-             "text": f"<b>{mx[1]:.2f} %</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  #{mx[0]:.2f}
+             "text": f"<b>{mx[1]:.2f} %</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  #{mx[0]:.2f}
             {"xref": "paper", "yref": "paper","xanchor": "center","x":0.4, "y":1.20, 
-             "text": f"<b>{avg[1]:.2f} %</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  # {avg[0]:.2f}
+             "text": f"<b>{avg[1]:.2f} %</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  # {avg[0]:.2f}
                 
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":0.6, "y":1.35, 
-             "text": f"<b>{mx[2]:.2f} %</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  #{mx[0]:.2f}
+             "text": f"<b>{mx[2]:.2f} %</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  #{mx[0]:.2f}
             {"xref": "paper", "yref": "paper","xanchor": "center","x":0.6, "y":1.20, 
-             "text": f"<b>{avg[2]:.2f} %</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  # {avg[0]:.2f}
+             "text": f"<b>{avg[2]:.2f} %</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  # {avg[0]:.2f}
                 
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":0.8, "y":1.35, 
-             "text": f"<b>{mx[3]:.2f} %</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  #{mx[0]:.2f}
+             "text": f"<b>{mx[3]:.2f} %</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  #{mx[0]:.2f}
             {"xref": "paper", "yref": "paper","xanchor": "center","x":0.8, "y":1.20, 
-             "text": f"<b>{avg[3]:.2f} %</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  # {avg[0]:.2f}
+             "text": f"<b>{avg[3]:.2f} %</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  # {avg[0]:.2f}
                 
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":1., "y":1.35, 
-             "text": f"<b>{mx[4]:.2f} %</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  #{mx[0]:.2f}
+             "text": f"<b>{mx[4]:.2f} %</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  #{mx[0]:.2f}
             {"xref": "paper", "yref": "paper","xanchor": "center","x":1., "y":1.20, 
-             "text": f"<b>{avg[4]:.2f} %</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  # {avg[0]:.2f}
+             "text": f"<b>{avg[4]:.2f} %</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  # {avg[0]:.2f}
         #     {"xref": "paper", "yref": "paper","xanchor": "center","x":-0.14, "y":0.4, 
-        #      "text": f"<b>Min. {mn[0]:.2f}</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},
+        #      "text": f"<b>Min. {mn[0]:.2f}</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},
             {"xref": "paper", "yref": "paper", "xanchor": "center","x":-0., "y":1.8, 
-             "text": "<b>Fires</b>", 'font': {'size': 15, 'color': 'white'}, "showarrow":False}
+             "text": "<b>Fires</b>", 'font': {'size': 15, 'color': 'black'}, "showarrow":False}
             ],
             width=600,
             height=500,
@@ -377,7 +384,7 @@ if True:#check_password():
         # annotations=\
         # [
         # {"xref": "paper", "yref": "paper","xanchor": "center","x":-0.14, "y":0, 
-        #  "text": f"<b>Max. {max(df1[y_values]):.2f}</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+        #  "text": f"<b>Max. {max(df1[y_values]):.2f}</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
         
         # ],
         margin={"l":1, "r": 1},
@@ -466,13 +473,13 @@ if True:#check_password():
                     
                     annotate_value.extend([
                     {"xref": "paper", "yref": "paper","xanchor": "center","x":(j+1)/length, "y":1.4, 
-                     "text": f"<b>{max(df1.loc[df1['subject'] == subject_select[j]][y_val[i]]):.1f}</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+                     "text": f"<b>{max(df1.loc[df1['subject'] == subject_select[j]][y_val[i]]):.1f}</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
                     {"xref": "paper", "yref": "paper","xanchor": "center","x":(j+1)/length, "y":1.28, 
-                     "text": f"<b>{(df1.loc[df1['subject'] == subject_select[j]][y_val[i]]).mean():.1f}</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+                     "text": f"<b>{(df1.loc[df1['subject'] == subject_select[j]][y_val[i]]).mean():.1f}</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
                     {"xref": "paper", "yref": "paper","xanchor": "center","x":(j+1)/length, "y":1.16, 
-                     "text": f"<b>{min(df1.loc[df1['subject'] == subject_select[j]][y_val[i]]):.1f}</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+                     "text": f"<b>{min(df1.loc[df1['subject'] == subject_select[j]][y_val[i]]):.1f}</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
                     # {"xref": "paper", "yref": "paper", "xanchor": "center","x":-0.14, "y":1, 
-                    #  "text": f"<b>{text_val[i]}</b>", 'font': {'size': 16, 'color': 'white'}, "showarrow":False}  ## 
+                    #  "text": f"<b>{text_val[i]}</b>", 'font': {'size': 16, 'color': 'black'}, "showarrow":False}  ## 
                     ])
                     
                 plot.update_layout(
@@ -490,15 +497,15 @@ if True:#check_password():
                 annotations=annotate_value+\
                 [
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":-0., "y":1.4, 
-                 "text": "<b>Max.</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+                 "text": "<b>Max.</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":-0., "y":1.28, 
-                 "text": "<b>Avg.</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+                 "text": "<b>Avg.</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":-0., "y":1.16, 
-                 "text": "<b>Min.</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+                 "text": "<b>Min.</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
                 {"xref": "paper", "yref": "paper", "xanchor": "center","x":-0., "y":1.84, 
-                 "text": f"<b>{text_val[i]}</b>", 'font': {'size': 15, 'color': 'white'}, "showarrow":False}
+                 "text": f"<b>{text_val[i]}</b>", 'font': {'size': 15, 'color': 'black'}, "showarrow":False}
                 # {"xref": "paper", "yref": "paper", "xanchor": "center","x":-0.14, "y":1, 
-                #  "text": f"<b>{text_val[i]}</b>", 'font': {'size': 16, 'color': 'white'}, "showarrow":False}  ## 
+                #  "text": f"<b>{text_val[i]}</b>", 'font': {'size': 16, 'color': 'black'}, "showarrow":False}  ## 
                 ],
                 margin={"l":5, "r": 5, 't':200},
                 )
@@ -576,9 +583,9 @@ if True:#check_password():
                 
                 annotate_value.extend([
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":(j+1)/length, "y":1.35, 
-                 "text": f"<b>{max(df1.loc[df1['subject'] == subject_select[j]]['fire_intensity']):.1f}</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+                 "text": f"<b>{max(df1.loc[df1['subject'] == subject_select[j]]['fire_intensity']):.1f}</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":(j+1)/length, "y":1.20, 
-                 "text": f"<b>{(df1.loc[df1['subject'] == subject_select[j]]['fire_intensity']).mean():.1f}</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+                 "text": f"<b>{(df1.loc[df1['subject'] == subject_select[j]]['fire_intensity']).mean():.1f}</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
                 
                 ])
             
@@ -586,12 +593,12 @@ if True:#check_password():
                 annotations=annotate_value+\
                 [
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":-0., "y":1.35, 
-                 "text": "<b>Max.</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  #{mx[0]:.2f}
+                 "text": "<b>Max.</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  #{mx[0]:.2f}
                 {"xref": "paper", "yref": "paper","xanchor": "center","x":-0., "y":1.20, 
-                 "text": "<b>Avg.</b>",'font': {'size': 15, 'color': 'white'}, "showarrow":False},  # {avg[0]:.2f}
+                 "text": "<b>Avg.</b>",'font': {'size': 15, 'color': 'black'}, "showarrow":False},  # {avg[0]:.2f}
                     
                 {"xref": "paper", "yref": "paper", "xanchor": "center","x":-0., "y":1.8, 
-                 "text": "<b>Fires</b>", 'font': {'size': 15, 'color': 'white'}, "showarrow":False}
+                 "text": "<b>Fires</b>", 'font': {'size': 15, 'color': 'black'}, "showarrow":False}
                 ],
                 width=500,
                 height=500,
@@ -725,7 +732,7 @@ if True:#check_password():
             annotations=\
             [
             {"xref": "paper", "yref": "paper","xanchor": "left","x":-0., "y":1.33, 
-              "text": "<b>Water Usage vs. Air Usage</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+              "text": "<b>Water Usage vs. Air Usage</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
         
             ],
             margin={"l":5, "r": 5, 't':100},
@@ -756,7 +763,7 @@ if True:#check_password():
             annotations=\
             [
             {"xref": "paper", "yref": "paper","xanchor": "left","x":-0., "y":1.33, 
-              "text": "<b>Water Usage Vs. Fire Intensity</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+              "text": "<b>Water Usage Vs. Fire Intensity</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
         
             ],
             margin={"l":5, "r": 5, 't':100},
@@ -791,7 +798,7 @@ if True:#check_password():
             annotations=\
             [
             {"xref": "paper", "yref": "paper","xanchor": "left","x":-0., "y":1.33, 
-              "text": "<b>Air Consumption During Simulation</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+              "text": "<b>Air Consumption During Simulation</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
         
             ],
             margin={"l":5, "r": 5, 't':100},
@@ -833,7 +840,7 @@ if True:#check_password():
             annotations=\
             [
             {"xref": "paper", "yref": "paper","xanchor": "left","x":-0., "y":1.33, 
-              "text": "<b>Total Air Usage, Water Usage and Relative Area Under Fire intensity Curve</b>",'font': {'size': 16, 'color': 'white'}, "showarrow":False},
+              "text": "<b>Total Air Usage, Water Usage and Relative Area Under Fire intensity Curve</b>",'font': {'size': 16, 'color': 'black'}, "showarrow":False},
         
             ],
             margin={"l":5, "r": 5, 't':100},
